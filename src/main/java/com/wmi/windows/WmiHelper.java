@@ -4,9 +4,11 @@ import com.jacob.activeX.ActiveXComponent;
 import com.jacob.com.Dispatch;
 import com.jacob.com.EnumVariant;
 import com.jacob.com.Variant;
+import org.apache.commons.lang3.tuple.Pair;
+
 import java.util.ArrayList;
 import java.util.List;
-import org.apache.commons.lang3.tuple.Pair;
+import java.util.Locale;
 
 public class WmiHelper
 {
@@ -31,7 +33,7 @@ public class WmiHelper
 		while (enumVariant.hasMoreElements())
 		{
 			final Dispatch item = enumVariant.nextElement().toDispatch();
-			result.add(Pair.of(Dispatch.call(item, "Caption").toString(), Dispatch.call(item, "PNPDeviceID").toString()));
+			result.add(Pair.of(Dispatch.call(item, "Caption").toString(), Dispatch.call(item, "PNPDeviceID").toString().replaceAll("SWD\\\\MMDEVAPI\\\\", "").toLowerCase(Locale.ENGLISH)));
 		}
 		return result;
 	}

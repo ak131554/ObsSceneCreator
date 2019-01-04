@@ -1,13 +1,13 @@
 {
-    "current_program_scene": "Ende",
-    "current_scene": "Ende",
+    "current_program_scene": "TTT_Stream",
+    "current_scene": "TTT_Stream",
     "current_transition": "Überblenden",
     "modules": {
         "auto-scene-switcher": {
             "active": false,
             "interval": 300,
-            "non_matching_scene": "Ende",
-            "switch_if_not_matching": true,
+            "non_matching_scene": "",
+            "switch_if_not_matching": false,
             "switches": []
         },
         "captions": {
@@ -28,14 +28,14 @@
         },
         "scripts-tool": []
     },
-    "name": "TTT-Kampagne",
+    "name": "TTT-Streamen 2019",
     "preview_locked": false,
     "quick_transitions": [
         {
             "duration": 300,
             "hotkeys": [],
             "id": 1,
-            "name": "Überblenden"
+            "name": "Schnitt"
         },
         {
             "duration": 300,
@@ -178,16 +178,10 @@
     "scaling_off_y": 0.0,
     "scene_order": [
         {
-            "name": "Start"
+            "name": "TTT_Intro"
         },
         {
-            "name": "Spiel"
-        },
-        {
-            "name": "Pause"
-        },
-        {
-            "name": "Ende"
+            "name": "TTT_Stream"
         }
     ],
     "sources": [
@@ -197,281 +191,87 @@
             "enabled": true,
             "flags": 0,
             "hotkeys": {
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
+            },
+            "id": "wasapi_output_capture",
+            "mixers": 255,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "TS",
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "device_id": "${TS}"
+            },
+            "sync": 0,
+            "volume": 1.0
+        },
+        {
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {},
+            "id": "window_capture",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "ArmA3_Fensteraufnahme",
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "window": "${arma_path}"
+            },
+            "sync": 0,
+            "volume": 1.0
+        },
+        {
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
                 "OBSBasic.SelectScene": [
                     {
-                        "control": true,
                         "key": "OBS_KEY_F3"
                     }
                 ],
-                "libobs.hide_scene_item.TTT_Background": [],
-                "libobs.hide_scene_item.TTT_Danke": [],
-                "libobs.hide_scene_item.TTT_adresse": [],
-                "libobs.show_scene_item.TTT_Background": [],
-                "libobs.show_scene_item.TTT_Danke": [],
-                "libobs.show_scene_item.TTT_adresse": []
-            },
-            "id": "scene",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Ende",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "id_counter": 6,
-                "items": [
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 1920.0,
-                            "y": 1080.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 2,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 1,
-                        "locked": false,
-                        "name": "TTT_Background",
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 2,
-                        "locked": false,
-                        "name": "TTT_Danke",
-                        "pos": {
-                            "x": 516.0,
-                            "y": 854.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 3,
-                        "locked": false,
-                        "name": "TTT_adresse",
-                        "pos": {
-                            "x": 767.0,
-                            "y": 967.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    }
-                ]
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [
-                    {
-                        "control": true,
-                        "key": "OBS_KEY_F2"
-                    }
-                ],
-                "libobs.hide_scene_item.TTT_Background": [],
-                "libobs.hide_scene_item.TTT_OP": [],
-                "libobs.hide_scene_item.TTT_Pause": [],
-                "libobs.show_scene_item.TTT_Background": [],
-                "libobs.show_scene_item.TTT_OP": [],
-                "libobs.show_scene_item.TTT_Pause": []
-            },
-            "id": "scene",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Pause",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "id_counter": 4,
-                "items": [
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 1920.0,
-                            "y": 1080.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 2,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 1,
-                        "locked": false,
-                        "name": "TTT_Background",
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 4,
-                        "locked": false,
-                        "name": "TTT_OP",
-                        "pos": {
-                            "x": 382.0,
-                            "y": 852.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 3,
-                        "locked": false,
-                        "name": "TTT_Pause",
-                        "pos": {
-                            "x": 0.0,
-                            "y": 973.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    }
-                ]
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [
-                    {
-                        "control": true,
-                        "key": "OBS_KEY_F1"
-                    }
-                ],
-                "libobs.hide_scene_item.Desktop ein": [],
-                "libobs.hide_scene_item.Mic ein": [],
-                "libobs.hide_scene_item.Spielaufnahme": [],
-                "libobs.hide_scene_item.TS ein": [],
+                "libobs.hide_scene_item.ArmA3_Fensteraufnahme": [],
+                "libobs.hide_scene_item.ArmA3_Spielaufnahme": [],
+                "libobs.hide_scene_item.Mikro": [],
+                "libobs.hide_scene_item.Spielsound": [],
+                "libobs.hide_scene_item.TS": [],
                 "libobs.hide_scene_item.TTT_Name": [],
                 "libobs.hide_scene_item.TTT_Overlay": [],
-                "libobs.hide_scene_item.TTT_Position": [],
-                "libobs.show_scene_item.Desktop ein": [],
-                "libobs.show_scene_item.Mic ein": [],
-                "libobs.show_scene_item.Spielaufnahme": [],
-                "libobs.show_scene_item.TS ein": [],
+                "libobs.show_scene_item.ArmA3_Fensteraufnahme": [],
+                "libobs.show_scene_item.ArmA3_Spielaufnahme": [],
+                "libobs.show_scene_item.Mikro": [],
+                "libobs.show_scene_item.Spielsound": [],
+                "libobs.show_scene_item.TS": [],
                 "libobs.show_scene_item.TTT_Name": [],
-                "libobs.show_scene_item.TTT_Overlay": [],
-                "libobs.show_scene_item.TTT_Position": []
+                "libobs.show_scene_item.TTT_Overlay": []
             },
             "id": "scene",
             "mixers": 0,
             "monitoring_type": 0,
             "muted": false,
-            "name": "Spiel",
+            "name": "TTT_Stream",
             "private_settings": {},
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
-                "id_counter": 19,
+                "id_counter": 17,
                 "items": [
                     {
                         "align": 5,
@@ -485,9 +285,9 @@
                         "crop_left": 0,
                         "crop_right": 0,
                         "crop_top": 0,
-                        "id": 1,
+                        "id": 17,
                         "locked": false,
-                        "name": "TS ein",
+                        "name": "TS",
                         "pos": {
                             "x": 0.0,
                             "y": 0.0
@@ -513,65 +313,9 @@
                         "crop_left": 0,
                         "crop_right": 0,
                         "crop_top": 0,
-                        "id": 2,
-                        "locked": false,
-                        "name": "Mic ein",
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 11,
-                        "locked": false,
-                        "name": "Spielaufnahme",
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 4,
-                        "locked": false,
-                        "name": "TTT_Overlay",
+                        "id": 6,
+                        "locked": true,
+                        "name": "Spielsound",
                         "pos": {
                             "x": 0.0,
                             "y": 0.0
@@ -598,10 +342,10 @@
                         "crop_right": 0,
                         "crop_top": 0,
                         "id": 5,
-                        "locked": false,
-                        "name": "TTT_Position",
+                        "locked": true,
+                        "name": "Mikro",
                         "pos": {
-                            "x": 19.0,
+                            "x": 0.0,
                             "y": 0.0
                         },
                         "private_settings": {},
@@ -613,94 +357,6 @@
                         "scale_filter": "disable",
                         "visible": true
                     },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 6,
-                        "locked": false,
-                        "name": "TTT_Name",
-                        "pos": {
-                            "x": 894.0,
-                            "y": 0.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 7,
-                        "locked": false,
-                        "name": "Desktop ein",
-                        "pos": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    }
-                ]
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
-                "OBSBasic.SelectScene": [],
-                "libobs.hide_scene_item.TTT_Background": [],
-                "libobs.hide_scene_item.TTT_OP": [],
-                "libobs.hide_scene_item.TTT_adresse": [],
-                "libobs.show_scene_item.TTT_Background": [],
-                "libobs.show_scene_item.TTT_OP": [],
-                "libobs.show_scene_item.TTT_adresse": []
-            },
-            "id": "scene",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Start",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "id_counter": 11,
-                "items": [
                     {
                         "align": 5,
                         "bounds": {
@@ -708,14 +364,14 @@
                             "y": 1080.0
                         },
                         "bounds_align": 0,
-                        "bounds_type": 2,
+                        "bounds_type": 1,
                         "crop_bottom": 0,
                         "crop_left": 0,
                         "crop_right": 0,
                         "crop_top": 0,
-                        "id": 10,
-                        "locked": false,
-                        "name": "TTT_Background",
+                        "id": 13,
+                        "locked": true,
+                        "name": "ArmA3_Fensteraufnahme",
                         "pos": {
                             "x": 0.0,
                             "y": 0.0
@@ -727,54 +383,82 @@
                             "y": 1.0
                         },
                         "scale_filter": "disable",
-                        "visible": true
+                        "visible": false
                     },
                     {
                         "align": 5,
                         "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
+                            "x": 1920.0,
+                            "y": 1080.0
                         },
                         "bounds_align": 0,
-                        "bounds_type": 0,
-                        "crop_bottom": 0,
-                        "crop_left": 0,
-                        "crop_right": 0,
-                        "crop_top": 0,
-                        "id": 2,
-                        "locked": false,
-                        "name": "TTT_adresse",
-                        "pos": {
-                            "x": 766.0,
-                            "y": 964.0
-                        },
-                        "private_settings": {},
-                        "rot": 0.0,
-                        "scale": {
-                            "x": 1.0,
-                            "y": 1.0
-                        },
-                        "scale_filter": "disable",
-                        "visible": true
-                    },
-                    {
-                        "align": 5,
-                        "bounds": {
-                            "x": 0.0,
-                            "y": 0.0
-                        },
-                        "bounds_align": 0,
-                        "bounds_type": 0,
+                        "bounds_type": 1,
                         "crop_bottom": 0,
                         "crop_left": 0,
                         "crop_right": 0,
                         "crop_top": 0,
                         "id": 11,
-                        "locked": false,
-                        "name": "TTT_OP",
+                        "locked": true,
+                        "name": "ArmA3_Spielaufnahme",
                         "pos": {
-                            "x": 388.0,
-                            "y": 852.0
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    },
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "id": 3,
+                        "locked": true,
+                        "name": "TTT_Overlay",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    },
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 1920.0,
+                            "y": 25.0
+                        },
+                        "bounds_align": 6,
+                        "bounds_type": 6,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "id": 2,
+                        "locked": true,
+                        "name": "TTT_Name",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
                         },
                         "private_settings": {},
                         "rot": 0.0,
@@ -796,96 +480,7 @@
             "enabled": true,
             "flags": 0,
             "hotkeys": {},
-            "id": "text_ft2_source",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "TTT_adresse",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "color1": 4278190080,
-                "color2": 4278190080,
-                "font": {
-                    "face": "Ubuntu",
-                    "flags": 0,
-                    "size": 48,
-                    "style": "Regular"
-                },
-                "text": "www.tacticalteam.de"
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {},
-            "id": "text_ft2_source",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "TTT_OP",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "color1": 4278190080,
-                "color2": 4278190080,
-                "font": {
-                    "face": "Ubuntu",
-                    "flags": 0,
-                    "size": 72,
-                    "style": "Regular"
-                },
-                "text": "Missionsname"
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {},
-            "id": "text_ft2_source",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "TTT_Position",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "font": {
-                    "face": "Ubuntu",
-                    "flags": 0,
-                    "size": 36,
-                    "style": "Regular"
-                },
-                "outline": true,
-                "text": "Slotbezeichnung - Truppbezeichnung"
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {},
-            "id": "text_ft2_source",
+            "id": "text_gdiplus",
             "mixers": 0,
             "monitoring_type": 0,
             "muted": false,
@@ -896,14 +491,20 @@
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
+                "align": "center",
+                "bk_opacity": 0,
                 "font": {
-                    "face": "Ubuntu",
+                    "face": "Rubik",
                     "flags": 0,
                     "size": 48,
                     "style": "Regular"
                 },
-                "outline": true,
-                "text": "${name}"
+                "opacity": 100,
+                "outline": false,
+                "outline_color": 0,
+                "outline_size": 1,
+                "text": "${name}",
+                "valign": "top"
             },
             "sync": 0,
             "volume": 1.0
@@ -941,48 +542,141 @@
                     "enabled": true,
                     "flags": 0,
                     "hotkeys": {},
-                    "id": "scroll_filter",
-                    "mixers": 0,
+                    "id": "noise_gate_filter",
+                    "mixers": 255,
                     "monitoring_type": 0,
                     "muted": false,
-                    "name": "Bewegung",
+                    "name": "Klickfanger",
                     "private_settings": {},
                     "push-to-mute": false,
                     "push-to-mute-delay": 0,
                     "push-to-talk": false,
                     "push-to-talk-delay": 0,
                     "settings": {
-                        "cx": 1920,
-                        "limit_cx": true,
-                        "speed_x": 20.0
+                        "close_threshold": -45.0,
+                        "open_threshold": -30.0
+                    },
+                    "sync": 0,
+                    "volume": 1.0
+                },
+                {
+                    "deinterlace_field_order": 0,
+                    "deinterlace_mode": 0,
+                    "enabled": true,
+                    "flags": 0,
+                    "hotkeys": {},
+                    "id": "gain_filter",
+                    "mixers": 255,
+                    "monitoring_type": 0,
+                    "muted": false,
+                    "name": "Verstärker",
+                    "private_settings": {},
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "settings": {
+                        "db": 5.0
+                    },
+                    "sync": 0,
+                    "volume": 1.0
+                },
+                {
+                    "deinterlace_field_order": 0,
+                    "deinterlace_mode": 0,
+                    "enabled": true,
+                    "flags": 0,
+                    "hotkeys": {},
+                    "id": "noise_suppress_filter",
+                    "mixers": 255,
+                    "monitoring_type": 0,
+                    "muted": false,
+                    "name": "Rauschunterdrückung",
+                    "private_settings": {},
+                    "push-to-mute": false,
+                    "push-to-mute-delay": 0,
+                    "push-to-talk": false,
+                    "push-to-talk-delay": 0,
+                    "settings": {
+                        "suppress_level": 0
                     },
                     "sync": 0,
                     "volume": 1.0
                 }
             ],
             "flags": 0,
-            "hotkeys": {},
-            "id": "text_ft2_source",
-            "mixers": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
+            },
+            "id": "wasapi_input_capture",
+            "mixers": 255,
             "monitoring_type": 0,
             "muted": false,
-            "name": "TTT_Pause",
+            "name": "Mikro",
             "private_settings": {},
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
-                "color1": 4278190080,
-                "color2": 4278190080,
-                "drop_shadow": false,
-                "font": {
-                    "face": "Ubuntu",
-                    "flags": 0,
-                    "size": 48,
-                    "style": "Regular"
-                },
-                "text": "Kurze Pause, der Stream geht gleich weiter.\t\t\t\t\twww.tacticalteam.de\t\t\t\t\t\t"
+                "device_id": "${mic}",
+                "use_device_timing": true
+            },
+            "sync": 0,
+            "volume": 0.37324798107147217
+        },
+        {
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
+                "libobs.mute": [],
+                "libobs.push-to-mute": [],
+                "libobs.push-to-talk": [],
+                "libobs.unmute": []
+            },
+            "id": "wasapi_output_capture",
+            "mixers": 255,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "Spielsound",
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "device_id": "${desktop}"
+            },
+            "sync": 0,
+            "volume": 0.085184007883071899
+        },
+        {
+            "deinterlace_field_order": 0,
+            "deinterlace_mode": 0,
+            "enabled": true,
+            "flags": 0,
+            "hotkeys": {
+                "hotkey_start": [],
+                "hotkey_stop": []
+            },
+            "id": "game_capture",
+            "mixers": 0,
+            "monitoring_type": 0,
+            "muted": false,
+            "name": "ArmA3_Spielaufnahme",
+            "private_settings": {},
+            "push-to-mute": false,
+            "push-to-mute-delay": 0,
+            "push-to-talk": false,
+            "push-to-talk-delay": 0,
+            "settings": {
+                "capture_mode": "window",
+                "window": "${arma_path}"
             },
             "sync": 0,
             "volume": 1.0
@@ -992,27 +686,57 @@
             "deinterlace_mode": 0,
             "enabled": true,
             "flags": 0,
-            "hotkeys": {},
-            "id": "text_ft2_source",
+            "hotkeys": {
+                "OBSBasic.SelectScene": [
+                    {
+                        "key": "OBS_KEY_F2"
+                    }
+                ],
+                "libobs.hide_scene_item.TTT_WaitingScreen": [],
+                "libobs.show_scene_item.TTT_WaitingScreen": []
+            },
+            "id": "scene",
             "mixers": 0,
             "monitoring_type": 0,
             "muted": false,
-            "name": "TTT_Danke",
+            "name": "TTT_Intro",
             "private_settings": {},
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
-                "color1": 4278190080,
-                "color2": 4278190080,
-                "font": {
-                    "face": "Ubuntu",
-                    "flags": 0,
-                    "size": 72,
-                    "style": "Regular"
-                },
-                "text": "Vielen Dank fürs Zuschauen!"
+                "id_counter": 1,
+                "items": [
+                    {
+                        "align": 5,
+                        "bounds": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "bounds_align": 0,
+                        "bounds_type": 0,
+                        "crop_bottom": 0,
+                        "crop_left": 0,
+                        "crop_right": 0,
+                        "crop_top": 0,
+                        "id": 1,
+                        "locked": true,
+                        "name": "TTT_WaitingScreen",
+                        "pos": {
+                            "x": 0.0,
+                            "y": 0.0
+                        },
+                        "private_settings": {},
+                        "rot": 0.0,
+                        "scale": {
+                            "x": 1.0,
+                            "y": 1.0
+                        },
+                        "scale_filter": "disable",
+                        "visible": true
+                    }
+                ]
             },
             "sync": 0,
             "volume": 1.0
@@ -1032,201 +756,22 @@
             "id": "ffmpeg_source",
             "mixers": 255,
             "monitoring_type": 0,
-            "muted": true,
-            "name": "TTT_Background",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "input": "http://monclefu.de/ttt/StreamBG.mp4",
-                "is_local_file": true,
-                "local_file": "${stream_bg}",
-                "looping": true
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "filters": [
-                {
-                    "deinterlace_field_order": 0,
-                    "deinterlace_mode": 0,
-                    "enabled": true,
-                    "flags": 0,
-                    "hotkeys": {},
-                    "id": "noise_suppress_filter",
-                    "mixers": 255,
-                    "monitoring_type": 0,
-                    "muted": false,
-                    "name": "Rauschunterdrückung",
-                    "private_settings": {},
-                    "push-to-mute": false,
-                    "push-to-mute-delay": 0,
-                    "push-to-talk": false,
-                    "push-to-talk-delay": 0,
-                    "settings": {},
-                    "sync": 0,
-                    "volume": 1.0
-                },
-                {
-                    "deinterlace_field_order": 0,
-                    "deinterlace_mode": 0,
-                    "enabled": true,
-                    "flags": 0,
-                    "hotkeys": {},
-                    "id": "noise_gate_filter",
-                    "mixers": 255,
-                    "monitoring_type": 0,
-                    "muted": false,
-                    "name": "Noise Gate",
-                    "private_settings": {},
-                    "push-to-mute": false,
-                    "push-to-mute-delay": 0,
-                    "push-to-talk": false,
-                    "push-to-talk-delay": 0,
-                    "settings": {},
-                    "sync": 0,
-                    "volume": 1.0
-                },
-                {
-                    "deinterlace_field_order": 0,
-                    "deinterlace_mode": 0,
-                    "enabled": true,
-                    "flags": 0,
-                    "hotkeys": {},
-                    "id": "compressor_filter",
-                    "mixers": 255,
-                    "monitoring_type": 0,
-                    "muted": false,
-                    "name": "Kompressor",
-                    "private_settings": {},
-                    "push-to-mute": false,
-                    "push-to-mute-delay": 0,
-                    "push-to-talk": false,
-                    "push-to-talk-delay": 0,
-                    "settings": {},
-                    "sync": 0,
-                    "volume": 1.0
-                }
-            ],
-            "flags": 0,
-            "hotkeys": {
-                "libobs.mute": [
-                    {
-                        "key": "OBS_KEY_PAUSE"
-                    }
-                ],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": [],
-                "libobs.unmute": [
-                    {
-                        "key": "OBS_KEY_PAUSE"
-                    }
-                ]
-            },
-            "id": "wasapi_input_capture",
-            "mixers": 255,
-            "monitoring_type": 0,
             "muted": false,
-            "name": "Mic ein",
+            "name": "TTT_WaitingScreen",
             "private_settings": {},
             "push-to-mute": false,
             "push-to-mute-delay": 0,
             "push-to-talk": false,
             "push-to-talk-delay": 0,
             "settings": {
-                "device_id": "${mic}"
-            },
-            "sync": 0,
-            "volume": 0.77868789434432983
-        },#if(${TS})
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
-                "libobs.mute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": [],
-                "libobs.unmute": []
-            },
-            "id": "wasapi_input_capture",
-            "mixers": 255,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "TS ein",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "device_id": "${TS}"
-            },
-            "sync": 0,
-            "volume": 0.77868789434432983
-        },#end
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
-                "libobs.mute": [],
-                "libobs.push-to-mute": [],
-                "libobs.push-to-talk": [],
-                "libobs.unmute": []
-            },
-            "id": "wasapi_input_capture",
-            "mixers": 255,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Desktop ein",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "device_id": "${desktop}"
-            },
-            "sync": 0,
-            "volume": 1.0
-        },
-        {
-            "deinterlace_field_order": 0,
-            "deinterlace_mode": 0,
-            "enabled": true,
-            "flags": 0,
-            "hotkeys": {
-                "hotkey_start": [],
-                "hotkey_stop": []
-            },
-            "id": "game_capture",
-            "mixers": 0,
-            "monitoring_type": 0,
-            "muted": false,
-            "name": "Spielaufnahme",
-            "private_settings": {},
-            "push-to-mute": false,
-            "push-to-mute-delay": 0,
-            "push-to-talk": false,
-            "push-to-talk-delay": 0,
-            "settings": {
-                "capture_mode": "window",
-                "force_scaling": false,
-                "window": "Arma 3 Epsilon [TTT] \"G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\arma3_x64.exe\" -noPause -hugepages -nosplash -world=empty -nologs \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\@TTT_ace;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\@TTT_acex;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_bwk;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\@TTT_cba_a3;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\@TTT_ctab;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_rsr;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\@TTT_task_force_radio;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_ttt;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_ares;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_backpack_on_chest;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_clearhud;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_lesh_tow;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_nochain;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_r_unfold;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_spec_tfar_ace;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_suppress;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_rupal;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_ACLS;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\misc\\@TTT_ExtFort;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_redd_vehicles;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_afghan-village;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_beketov;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_bozcaada;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_chernarus_winter;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_diyala;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_F15;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_fata;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_FIR;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_kunduz;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_map_misc;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_mbg_celle;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_MNP;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_nziwasogo;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_panthera;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_podagorsk;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_prei_khmaoch_luong;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_thirsk;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_uk3cb_baf_Equipment;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_uk3cb_baf_Vehicles;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_uk3cb_baf_Weapons;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_bwa3;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\x_cup_terrains\\@x_cup_terrains_maps;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_cup_units;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_cup_vehicles;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_cup_weapons;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_rhs_afrf;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_rhs_usaf;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\x_cup_terrains\\@x_cup_terrains_cwa;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\maps\\@TTT_al_rayak;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\TTT_standard\\uvw\\@TTT_F16;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\x_cup_terrains\\@x_cup_terrains_core;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_niarms;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_rhs_gref;\" \"-mod=G#3A\\Program Files (x86)\\SteamLibrary\\steamapps\\common\\Arma 3\\shared\\@x_rhs_saf;\":Arma 3:arma3_x64.exe"
+                "local_file": "${waiting_screen}",
+                "looping": true,
+                "restart_on_activate": false
             },
             "sync": 0,
             "volume": 1.0
         }
     ],
-    "transition_duration": 300,
+    "transition_duration": 400,
     "transitions": []
 }
