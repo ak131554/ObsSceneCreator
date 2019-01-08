@@ -12,7 +12,7 @@ import java.util.Locale;
 
 public class WmiHelper
 {
-	public List<Pair<String,String>> queryAudioDevices()
+	public List<AudioDevice> queryAudioDevices()
 	{
 		ActiveXComponent wmi = new ActiveXComponent("WbemScripting.SWbemLocator");
 		// no connection parameters means to connect to the local machine
@@ -29,11 +29,11 @@ public class WmiHelper
 			.invoke("ExecQuery", new Variant(query));
 
 		EnumVariant enumVariant = new EnumVariant(vCollection.toDispatch());
-		List<Pair<String, String>> result = new ArrayList<>();
+		List<AudioDevice> result = new ArrayList<>();
 		while (enumVariant.hasMoreElements())
 		{
 			final Dispatch item = enumVariant.nextElement().toDispatch();
-			result.add(Pair.of(Dispatch.call(item, "Caption").toString(), Dispatch.call(item, "PNPDeviceID").toString().replaceAll("SWD\\\\MMDEVAPI\\\\", "").toLowerCase(Locale.ENGLISH)));
+			result.add(new AudioDevice(Dispatch.call(item, "Caption").toString(), Dispatch.call(item, "PNPDeviceID").toString().replaceAll("SWD\\\\MMDEVAPI\\\\", "").toLowerCase(Locale.ENGLISH)));
 		}
 		return result;
 	}

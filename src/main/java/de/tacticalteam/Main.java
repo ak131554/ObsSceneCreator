@@ -1,25 +1,36 @@
 package de.tacticalteam;
 
+import com.wmi.windows.AudioDevice;
 import com.wmi.windows.WmiHelper;
-import org.apache.commons.lang3.tuple.Pair;
+import java.awt.EventQueue;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.Serializable;
+import java.util.List;
+import java.util.Locale;
+import java.util.Scanner;
 import org.apache.velocity.VelocityContext;
 import org.apache.velocity.app.Velocity;
 import org.apache.velocity.context.Context;
 import org.apache.velocity.runtime.RuntimeConstants;
 import org.apache.velocity.runtime.log.NullLogChute;
 
-import java.io.*;
-import java.util.List;
-import java.util.Locale;
-import java.util.Scanner;
-
-public class Main
+public class Main implements Serializable
 {
-	private final List<Pair<String, String>> audioDevices;
+	private static final long serialVersionUID = 1L;
+	private final List<AudioDevice> audioDevices;
+	private AudioDevice selectedMicroDevice = null;
+	private AudioDevice selectedDesktopDevice = null;
+	private AudioDevice selectedTSDevice = null;
+	private boolean sameSourceLikeDesktop = true;
 
 	public static void main(String[] args)
 	{
-		new Main().createJson();
+		EventQueue.invokeLater(() -> new MainFrame(new Main()));
 	}
 
 	public Main()
@@ -27,7 +38,52 @@ public class Main
 		audioDevices = new WmiHelper().queryAudioDevices();
 	}
 
-	private void createJson()
+	List<AudioDevice> getAudioDevices()
+	{
+		return audioDevices;
+	}
+
+	public AudioDevice getSelectedMicroDevice()
+	{
+		return selectedMicroDevice;
+	}
+
+	public void setSelectedMicroDevice(final AudioDevice selectedMicroDevice)
+	{
+		this.selectedMicroDevice = selectedMicroDevice;
+	}
+
+	public AudioDevice getSelectedDesktopDevice()
+	{
+		return selectedDesktopDevice;
+	}
+
+	public void setSelectedDesktopDevice(final AudioDevice selectedDesktopDevice)
+	{
+		this.selectedDesktopDevice = selectedDesktopDevice;
+	}
+
+	public AudioDevice getSelectedTSDevice()
+	{
+		return selectedTSDevice;
+	}
+
+	public void setSelectedTSDevice(final AudioDevice selectedTSDevice)
+	{
+		this.selectedTSDevice = selectedTSDevice;
+	}
+
+	public boolean isSameSourceLikeDesktop()
+	{
+		return sameSourceLikeDesktop;
+	}
+
+	public void setSameSourceLikeDesktop(final boolean sameSourceLikeDesktop)
+	{
+		this.sameSourceLikeDesktop = sameSourceLikeDesktop;
+	}
+
+	void createJson()
 	{
 		final ClassLoader classLoader = getClass().getClassLoader();
 		final InputStream inputStream = classLoader.getResourceAsStream("TTT.json.template");
@@ -67,13 +123,13 @@ public class Main
 		System.out.println(string.replaceAll(".", "-"));
 		for (int i = 0; i < audioDevices.size(); i++)
 		{
-			System.out.println(Integer.toString(i) + ". " + audioDevices.get(i).getKey());
+			System.out.println(Integer.toString(i) + ". " + audioDevices.get(i).getName());
 		}
 		System.out.print("Geben Sie die Nummer der Audioquelle ein: ");
 		final Scanner reader = new Scanner(System.in);
 		final int index = reader.nextInt();
 		System.out.println();
-		return audioDevices.get(index).getValue();
+		return audioDevices.get(index).getDeviceId();
 	}
 
 	private String askFor(final String text)
