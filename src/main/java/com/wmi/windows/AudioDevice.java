@@ -2,7 +2,7 @@ package com.wmi.windows;
 
 public class AudioDevice
 {
-	public static final AudioDevice DEFAULT_INPUT = new AudioDevice("Standard", null)
+	public static final AudioDevice DEFAULT_INPUT = new AudioDevice("Standard", "default")
 	{
 		@Override
 		public boolean isAudioInputDevice()
@@ -10,7 +10,7 @@ public class AudioDevice
 			return true;
 		}
 	};
-	public static final AudioDevice DEFAULT_OUTPUT = new AudioDevice("Standard", null)
+	public static final AudioDevice DEFAULT_OUTPUT = new AudioDevice("Standard", "default")
 	{
 		@Override
 		public boolean isAudioInputDevice()

@@ -184,7 +184,7 @@
             "name": "TTT_Stream"
         }
     ],
-    "sources": [
+    "sources": [#if(${TS})
         {
             "deinterlace_field_order": 0,
             "deinterlace_mode": 0,
@@ -211,7 +211,7 @@
             },
             "sync": 0,
             "volume": 1.0
-        },
+        },#end
         {
             "deinterlace_field_order": 0,
             "deinterlace_mode": 0,
@@ -249,14 +249,14 @@
                 "libobs.hide_scene_item.ArmA3_Spielaufnahme": [],
                 "libobs.hide_scene_item.Mikro": [],
                 "libobs.hide_scene_item.Spielsound": [],
-                "libobs.hide_scene_item.TS": [],
+                #if(${TS})"libobs.hide_scene_item.TS": [],#end
                 "libobs.hide_scene_item.TTT_Name": [],
                 "libobs.hide_scene_item.TTT_Overlay": [],
                 "libobs.show_scene_item.ArmA3_Fensteraufnahme": [],
                 "libobs.show_scene_item.ArmA3_Spielaufnahme": [],
                 "libobs.show_scene_item.Mikro": [],
                 "libobs.show_scene_item.Spielsound": [],
-                "libobs.show_scene_item.TS": [],
+                #if(${TS})"libobs.show_scene_item.TS": [],#end
                 "libobs.show_scene_item.TTT_Name": [],
                 "libobs.show_scene_item.TTT_Overlay": []
             },
@@ -272,7 +272,7 @@
             "push-to-talk-delay": 0,
             "settings": {
                 "id_counter": 17,
-                "items": [
+                "items": [#if(${TS})
                     {
                         "align": 5,
                         "bounds": {
@@ -286,7 +286,7 @@
                         "crop_right": 0,
                         "crop_top": 0,
                         "id": 17,
-                        "locked": false,
+                        "locked": true,
                         "name": "TS",
                         "pos": {
                             "x": 0.0,
@@ -300,7 +300,7 @@
                         },
                         "scale_filter": "disable",
                         "visible": true
-                    },
+                    },#end
                     {
                         "align": 5,
                         "bounds": {
