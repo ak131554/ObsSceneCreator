@@ -31,7 +31,7 @@ public class JsonCreationPanel extends JPanel implements Observer
 		fileChooser = new JFileChooser();
 		fileChooser.setFileSelectionMode(JFileChooser.FILES_ONLY);
 		fileChooser.setMultiSelectionEnabled(false);
-		fileChooser.setSelectedFile(new File("TTTStreamen_2019.json"));
+		fileChooser.setSelectedFile(new File("TTTStreamen_2020.json"));
 		final FileNameExtensionFilter filter = new FileNameExtensionFilter("OBS Szenensammlung", "json");
 		fileChooser.addChoosableFileFilter(filter);
 		fileChooser.setFileFilter(filter);
